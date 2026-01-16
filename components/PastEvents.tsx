@@ -5,6 +5,7 @@ import Image from 'next/image';
 import styles from './PastEvents.module.css';
 import pastEvents from '@/data/past_events.json';
 import EventModal from './EventModal';
+import { getImagePath } from '@/utils/imagePath';
 
 export default function PastEvents() {
     const [selectedEvent, setSelectedEvent] = useState<typeof pastEvents[0] | null>(null);
@@ -35,7 +36,7 @@ export default function PastEvents() {
                             {event.image && !event.image.includes('placehold.co') ? (
                                 <div className={styles.imageWrapper}>
                                     <Image
-                                        src={event.image}
+                                        src={event.image.startsWith('http') ? event.image : getImagePath(event.image)}
                                         alt={event.title}
                                         fill
                                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"

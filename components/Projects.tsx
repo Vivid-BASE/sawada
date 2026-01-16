@@ -5,6 +5,7 @@ import Image from 'next/image';
 import styles from './Projects.module.css';
 import projectsData from '@/data/projects.json';
 import EventModal from './EventModal';
+import { getImagePath } from '@/utils/imagePath';
 
 type Event = {
     id: string;
@@ -89,7 +90,7 @@ export default function Projects() {
                                 >
                                     <div className={styles.eventImageWrapper}>
                                         <Image
-                                            src={event.image}
+                                            src={event.image.startsWith('http') ? event.image : getImagePath(event.image)}
                                             alt={event.title}
                                             width={400}
                                             height={300}

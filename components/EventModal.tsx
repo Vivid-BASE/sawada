@@ -3,6 +3,7 @@
 import React, { useEffect, useRef } from 'react';
 import Image from 'next/image';
 import styles from './EventModal.module.css';
+import { getImagePath } from '@/utils/imagePath';
 
 interface EventModalProps {
     isOpen: boolean;
@@ -55,7 +56,7 @@ const EventModal: React.FC<EventModalProps> = ({ isOpen, onClose, title, descrip
                     {image && !image.includes('placehold.co') && (
                         <div className={styles.imageWrapper}>
                             <Image
-                                src={image}
+                                src={image.startsWith('http') ? image : getImagePath(image)}
                                 alt={title}
                                 width={600}
                                 height={400}

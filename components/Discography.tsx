@@ -5,6 +5,7 @@ import Image from 'next/image';
 import styles from './Discography.module.css';
 import discData from '@/data/discography.json';
 import EventModal from './EventModal';
+import { getImagePath } from '@/utils/imagePath';
 
 export default function Discography() {
     const [selectedItem, setSelectedItem] = useState<typeof discData[0] | null>(null);
@@ -35,7 +36,7 @@ export default function Discography() {
                             {item.image && !item.image.includes('placehold.co') ? (
                                 <div className={styles.imageWrapper}>
                                     <Image
-                                        src={item.image}
+                                        src={item.image.startsWith('http') ? item.image : getImagePath(item.image)}
                                         alt={item.title}
                                         width={300}
                                         height={300}

@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import styles from './ScheduleCard.module.css';
+import { getImagePath } from '@/utils/imagePath';
 
 type Props = {
     date: string;
@@ -15,7 +16,7 @@ export default function ScheduleCard({ date, place, title, description, image }:
             {image && (
                 <div className={styles.imageWrapper}>
                     <Image
-                        src={image}
+                        src={image.startsWith('http') ? image : getImagePath(image)}
                         alt={title}
                         width={400}
                         height={300}

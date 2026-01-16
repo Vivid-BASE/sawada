@@ -3,33 +3,30 @@
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import styles from './HeroSlider.module.css';
-
-const HERO_IMAGES = [
-    "/images/hero1.jpg",
-    "/images/hero2.jpg",
-    "/images/hero3.jpg"
-];
+import { getImagePath } from '@/utils/imagePath';
+import profileData from '@/data/profile.json';
 
 export default function HeroSlider() {
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
+    const heroImages = profileData.images.hero;
 
     useEffect(() => {
         const interval = setInterval(() => {
-            setCurrentImageIndex((prev) => (prev + 1) % HERO_IMAGES.length);
+            setCurrentImageIndex((prev) => (prev + 1) % heroImages.length);
         }, 5000);
 
         return () => clearInterval(interval);
-    }, []);
+    }, [heroImages.length]);
 
     return (
         <section className={styles.hero}>
-            {HERO_IMAGES.map((src, index) => (
+            {heroImages.map((src, index) => (
                 <div
                     key={src}
                     className={`${styles.imageWrapper} ${index === currentImageIndex ? styles.active : ''}`}
                 >
                     <Image
-                        src={src}
+                        src={getImagePath(src)}
                         alt={`Sawada Yasuhito Hero ${index + 1}`}
                         fill
                         style={{ objectFit: 'cover' }}
