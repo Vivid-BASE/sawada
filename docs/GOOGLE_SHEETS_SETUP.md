@@ -1,122 +1,122 @@
-# Google Sheets Integration - Setup Guide
+# Googleスプレッドシート連携 - セットアップガイド
 
-## Overview
-This guide explains how to set up Google Sheets integration so you can update website content by simply editing a Google Sheet.
-
----
-
-## Part 1: Google Cloud Setup (One-time, ~15 minutes)
-
-### Step 1: Create Google Cloud Project
-1. Go to [Google Cloud Console](https://console.cloud.google.com/)
-2. Click "Select a project" → "New Project"
-3. Enter project name: `sawada-website-sync`
-4. Click "Create"
-
-### Step 2: Enable Google Sheets API
-1. In the Google Cloud Console, go to "APIs & Services" → "Library"
-2. Search for "Google Sheets API"
-3. Click on it and click "Enable"
-
-### Step 3: Create Service Account
-1. Go to "APIs & Services" → "Credentials"
-2. Click "Create Credentials" → "Service Account"
-3. Enter name: `sheets-sync-bot`
-4. Click "Create and Continue"
-5. Skip role selection (click "Continue")
-6. Click "Done"
-
-### Step 4: Generate Service Account Key
-1. Click on the service account you just created
-2. Go to "Keys" tab
-3. Click "Add Key" → "Create new key"
-4. Select "JSON" format
-5. Click "Create"
-6. **Save the downloaded JSON file securely** (you'll need it later)
+## 概要
+このガイドでは、Googleスプレッドシートを編集するだけでウェブサイトのコンテンツを更新できるようにする設定方法を説明します。
 
 ---
 
-## Part 2: Google Sheet Setup (One-time, ~10 minutes)
+## パート1: Google Cloudのセットアップ(初回のみ、約15分)
 
-### Step 1: Create Google Sheet
-1. Create a new Google Sheet
-2. Name it: `Sawada Website Content`
-3. Copy the Sheet ID from the URL:
+### ステップ1: Google Cloudプロジェクトの作成
+1. [Google Cloud Console](https://console.cloud.google.com/)にアクセス
+2. 「プロジェクトを選択」→「新しいプロジェクト」をクリック
+3. プロジェクト名を入力: `sawada-website-sync`
+4. 「作成」をクリック
+
+### ステップ2: Google Sheets APIの有効化
+1. Google Cloud Consoleで「APIとサービス」→「ライブラリ」に移動
+2. 「Google Sheets API」を検索
+3. クリックして「有効にする」をクリック
+
+### ステップ3: サービスアカウントの作成
+1. 「APIとサービス」→「認証情報」に移動
+2. 「認証情報を作成」→「サービスアカウント」をクリック
+3. 名前を入力: `sheets-sync-bot`
+4. 「作成して続行」をクリック
+5. ロールの選択はスキップ(「続行」をクリック)
+6. 「完了」をクリック
+
+### ステップ4: サービスアカウントキーの生成
+1. 作成したサービスアカウントをクリック
+2. 「キー」タブに移動
+3. 「鍵を追加」→「新しい鍵を作成」をクリック
+4. 「JSON」形式を選択
+5. 「作成」をクリック
+6. **ダウンロードされたJSONファイルを安全に保存**(後で使用します)
+
+---
+
+## パート2: Googleスプレッドシートのセットアップ(初回のみ、約10分)
+
+### ステップ1: Googleスプレッドシートの作成
+1. 新しいGoogleスプレッドシートを作成
+2. 名前を付ける: `Sawada Website Content`
+3. URLからシートIDをコピー:
    ```
-   https://docs.google.com/spreadsheets/d/SHEET_ID_HERE/edit
+   https://docs.google.com/spreadsheets/d/シートID/edit
    ```
 
-### Step 2: Share Sheet with Service Account
-1. Open the JSON key file you downloaded
-2. Find the `client_email` field (looks like: `sheets-sync-bot@project-id.iam.gserviceaccount.com`)
-3. In your Google Sheet, click "Share"
-4. Paste the service account email
-5. Set permission to "Viewer" (read-only)
-6. Uncheck "Notify people"
-7. Click "Share"
+### ステップ2: サービスアカウントとシートを共有
+1. ダウンロードしたJSONキーファイルを開く
+2. `client_email`フィールドを探す(例: `sheets-sync-bot@project-id.iam.gserviceaccount.com`)
+3. Googleスプレッドシートで「共有」をクリック
+4. サービスアカウントのメールアドレスを貼り付け
+5. 権限を「閲覧者」(読み取り専用)に設定
+6. 「ユーザーに通知」のチェックを外す
+7. 「共有」をクリック
 
-### Step 3: Create Sheet Tabs
-Create the following tabs in your Google Sheet:
+### ステップ3: シートのタブを作成
+Googleスプレッドシートに以下のタブを作成します:
 
-#### Tab 1: Schedule
+#### タブ1: Schedule(スケジュール)
 | date | place | title | description | image |
 |------|-------|-------|-------------|-------|
 | 2024.03.15 | 東京文化会館 | 春のコンサート | 津軽三味線の演奏会 | /images/event1.jpg |
 
-#### Tab 2: Discography
+#### タブ2: Discography(ディスコグラフィー)
 | id | title | releaseDate | productCode | price | image | description | couplings | links |
 |----|-------|-------------|-------------|-------|-------|-------------|-----------|-------|
 | 1 | たかが100年 | 2019.11.06 | YZWG-15232 | ¥1,200+税 | /images/discography/disco1.png | ... | 曲1,曲2,曲3 | {"amazon":"URL","tower":"URL"} |
 
-**Note:** For `couplings`, separate songs with commas. For `links`, use JSON format.
+**注意:** `couplings`はカンマ区切りで曲名を入力。`links`はJSON形式で入力。
 
-#### Tab 3: Projects
+#### タブ3: Projects(プロジェクト)
 | projectId | projectTitle | projectDescription | projectImage | eventId | eventTitle | eventDate | eventImage | eventDescription |
 |-----------|--------------|-------------------|--------------|---------|------------|-----------|------------|------------------|
 | 1 | ふるさとコンサート | 津軽三味線と歌で... | /images/project1.png | furusato-1 | ろまんちっく村 | 2023.07.09 | /images/p1.png | ... |
 | 1 | ふるさとコンサート | 津軽三味線と歌で... | /images/project1.png | furusato-2 | ろまんちっく村 | 2023.01.21 | /images/p2.png | ... |
 
-**Note:** Multiple rows with the same `projectId` will be grouped together.
+**注意:** 同じ`projectId`の複数行は1つのプロジェクトとしてグループ化されます。
 
-#### Tab 4: PastEvents
+#### タブ4: PastEvents(過去のイベント)
 | id | title | date | place | image | description |
 |----|-------|------|-------|-------|-------------|
 | past-1 | 2023年新春コンサート | 2023.01.15 | 東京 | /images/past1.jpg | ... |
 
-#### Tab 5: Profile
+#### タブ5: Profile(プロフィール)
 | field | value |
 |-------|-------|
 | name | 澤田慶仁 |
 | bio | 津軽三味線奏者... |
 | image | /images/profile.jpg |
 
-#### Tab 6: History
+#### タブ6: History(ヒストリー)
 | year | events |
 |------|--------|
 | 2023 | イベント1,イベント2,イベント3 |
 | 2022 | イベント1,イベント2 |
 
-**Note:** Separate events with commas.
+**注意:** イベントはカンマ区切りで入力。
 
 ---
 
-## Part 3: GitHub Setup (One-time, ~5 minutes)
+## パート3: GitHubのセットアップ(初回のみ、約5分)
 
-### Step 1: Add GitHub Secrets
-1. Go to your GitHub repository
-2. Click "Settings" → "Secrets and variables" → "Actions"
-3. Click "New repository secret"
+### ステップ1: GitHubシークレットの追加
+1. GitHubリポジトリにアクセス
+2. 「Settings」→「Secrets and variables」→「Actions」をクリック
+3. 「New repository secret」をクリック
 
-**Secret 1: GOOGLE_SHEET_ID**
-- Name: `GOOGLE_SHEET_ID`
-- Value: Your Sheet ID from Part 2, Step 1
+**シークレット1: GOOGLE_SHEET_ID**
+- 名前: `GOOGLE_SHEET_ID`
+- 値: パート2のステップ1で取得したシートID
 
-**Secret 2: GOOGLE_SERVICE_ACCOUNT_KEY**
-- Name: `GOOGLE_SERVICE_ACCOUNT_KEY`
-- Value: Entire contents of the JSON key file (copy and paste all of it)
+**シークレット2: GOOGLE_SERVICE_ACCOUNT_KEY**
+- 名前: `GOOGLE_SERVICE_ACCOUNT_KEY`
+- 値: JSONキーファイルの内容全体(ファイルを開いて全てコピー&ペースト)
 
-### Step 2: Commit and Push Code
-The sync script and workflow have already been created. Just commit and push:
+### ステップ2: コードのコミットとプッシュ
+同期スクリプトとワークフローは既に作成済みです。以下のコマンドでコミットとプッシュを行います:
 
 ```bash
 git add .github/workflows/sync-sheets.yml scripts/sync-sheets.js
@@ -126,58 +126,58 @@ git push origin main
 
 ---
 
-## Part 4: Testing (5 minutes)
+## パート4: テスト(5分)
 
-### Step 1: Manual Trigger
-1. Go to GitHub repository → "Actions" tab
-2. Click "Sync Google Sheets Data" workflow
-3. Click "Run workflow" → "Run workflow"
-4. Wait for the workflow to complete (~1 minute)
+### ステップ1: 手動トリガー
+1. GitHubリポジトリの「Actions」タブに移動
+2. 「Sync Google Sheets Data」ワークフローをクリック
+3. 「Run workflow」→「Run workflow」をクリック
+4. ワークフローの完了を待つ(約1分)
 
-### Step 2: Verify
-1. Check the workflow run for any errors
-2. If successful, check the repository for updated JSON files in `data/` folder
-3. Wait for the website to rebuild (~2 minutes)
-4. Visit your website and verify the content updated
-
----
-
-## Daily Usage (Super Simple!)
-
-Once setup is complete, updating the website is as easy as:
-
-1. **Open the Google Sheet**
-2. **Edit the content** (add/update/delete rows)
-3. **Wait** (sync runs automatically every hour, or trigger manually via GitHub Actions)
-4. **Done!** Website updates automatically
+### ステップ2: 確認
+1. ワークフローの実行結果にエラーがないか確認
+2. 成功した場合、リポジトリの`data/`フォルダ内のJSONファイルが更新されているか確認
+3. ウェブサイトの再ビルドを待つ(約2分)
+4. ウェブサイトにアクセスして、コンテンツが更新されているか確認
 
 ---
 
-## Troubleshooting
+## 日常的な使い方(超簡単!)
 
-### Sync fails with "Permission denied"
-- Make sure you shared the sheet with the service account email
-- Check that the service account has "Viewer" permission
+セットアップが完了したら、ウェブサイトの更新は以下の手順だけです:
 
-### Sync fails with "Invalid credentials"
-- Verify `GOOGLE_SERVICE_ACCOUNT_KEY` secret contains the entire JSON file contents
-- Make sure there are no extra spaces or line breaks
-
-### Data not updating on website
-- Check GitHub Actions tab for workflow status
-- Verify the workflow completed successfully
-- Check if JSON files in `data/` folder were updated
-- Wait for website deployment to complete (~2-3 minutes after sync)
-
-### Manual sync not working
-- Go to Actions → Sync Google Sheets Data → Run workflow
-- Check the logs for error messages
+1. **Googleスプレッドシートを開く**
+2. **内容を編集する**(行の追加/更新/削除)
+3. **待つ**(毎時0分に自動同期、または手動でGitHub Actionsからトリガー)
+4. **完了!** ウェブサイトが自動的に更新されます
 
 ---
 
-## Support
+## トラブルシューティング
 
-If you encounter issues:
-1. Check the GitHub Actions logs for detailed error messages
-2. Verify all secrets are set correctly
-3. Ensure the Google Sheet structure matches the templates above
+### 同期が「Permission denied」で失敗する
+- サービスアカウントのメールアドレスでシートを共有しているか確認
+- サービスアカウントに「閲覧者」権限があるか確認
+
+### 同期が「Invalid credentials」で失敗する
+- `GOOGLE_SERVICE_ACCOUNT_KEY`シークレットにJSONファイルの内容全体が含まれているか確認
+- 余分なスペースや改行がないか確認
+
+### ウェブサイトのデータが更新されない
+- GitHub Actionsタブでワークフローのステータスを確認
+- ワークフローが正常に完了したか確認
+- `data/`フォルダ内のJSONファイルが更新されたか確認
+- ウェブサイトのデプロイが完了するまで待つ(同期後2〜3分)
+
+### 手動同期が動作しない
+- Actions → Sync Google Sheets Data → Run workflowに移動
+- ログでエラーメッセージを確認
+
+---
+
+## サポート
+
+問題が発生した場合:
+1. GitHub Actionsのログで詳細なエラーメッセージを確認
+2. すべてのシークレットが正しく設定されているか確認
+3. Googleスプレッドシートの構造が上記のテンプレートと一致しているか確認
