@@ -75,7 +75,19 @@ curl -L -A "$UA" -H "Referer: $REF" -o public/images/project3_niiza.png "https:/
 # Ryugasaki
 curl -L -A "$UA" -H "Referer: $REF" -o public/images/project3_ryugasaki.png "https://custom-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_9000,w_1200,f_auto,q_auto/1355744/950674_375475.png"
 
-# Anata no Furusato Concert (2021)
-curl -L -A "$UA" -H "Referer: $REF" -o public/images/project_anata_no_furusato.jpg "https://custom-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_9000,w_1200,f_auto,q_auto/1355744/362476_786016.jpg"
+# Anata no Furusato Concert (2021) - Shared flyer for 3 events
+curl -L -A "$UA" -H "Referer: $REF" -o public/images/project_anata_no_furusato.jpg "https://custom-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_9000,w_1200,f_auto,q_auto/1355744/215094_227608.png"
+
+# Furusato Concert in Romantic Village - July 2023
+curl -L -A "$UA" -H "Referer: $REF" -o public/images/project1_july2023.png "https://custom-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_9000,w_1200,f_auto,q_auto/1355744/302315_77951.png"
+
+# Furusato Concert in Romantic Village - January 2023
+curl -L -A "$UA" -H "Referer: $REF" -o public/images/project1_jan2023.png "https://custom-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_9000,w_1200,f_auto,q_auto/1355744/885461_857928.png"
+
+# Heart's Furusato Concert in Sakado - December 2022
+curl -L -A "$UA" -H "Referer: $REF" -o public/images/heart_furusato_sakado.jpeg "https://custom-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_9000,w_1200,f_auto,q_auto/1355744/885733_441078.jpeg"
+
+# Heart's Furusato Concert in Ozu - December 2022
+curl -L -A "$UA" -H "Referer: $REF" -o public/images/heart_furusato_ozu.jpeg "https://custom-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_9000,w_1200,f_auto,q_auto/1355744/151225_595166.jpeg"
 
 echo "Download complete."
