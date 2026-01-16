@@ -18,6 +18,9 @@ export default function Home() {
       <Header />
       <main>
         <HeroSlider />
+        <div style={{ background: 'red', color: 'white', textAlign: 'center', padding: '10px', position: 'fixed', top: 0, left: 0, width: '100%', zIndex: 9999 }}>
+          DEPLOYMENT CHECK: v3 (HeroSlider Fixed)
+        </div>
 
         <div id="profile">
           <Profile />

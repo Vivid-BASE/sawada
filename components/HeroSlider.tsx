@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from 'react';
-import Image from 'next/image';
+// import Image from 'next/image';
 import styles from './HeroSlider.module.css';
 import { getImagePath } from '@/utils/imagePath';
 import profileData from '@/data/profile.json';
@@ -25,14 +25,18 @@ export default function HeroSlider() {
                     key={src}
                     className={`${styles.imageWrapper} ${index === currentImageIndex ? styles.active : ''}`}
                 >
-                    <Image
+                    <img
                         src={getImagePath(src)}
                         alt={`Sawada Yasuhito Hero ${index + 1}`}
-                        fill
-                        style={{ objectFit: 'cover' }}
-                        priority={index === 0}
-                        quality={95}
-                        unoptimized
+                        className={styles.heroImage}
+                        style={{
+                            objectFit: 'cover',
+                            width: '100%',
+                            height: '100%',
+                            position: 'absolute',
+                            top: 0,
+                            left: 0
+                        }}
                     />
                     <div className={styles.overlay}></div>
                 </div>

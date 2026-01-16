@@ -89,11 +89,9 @@ export default function Projects() {
                                     onClick={() => handleEventClick(event)}
                                 >
                                     <div className={styles.eventImageWrapper}>
-                                        <Image
+                                        <img
                                             src={event.image.startsWith('http') ? event.image : getImagePath(event.image)}
                                             alt={event.title}
-                                            width={400}
-                                            height={300}
                                             style={{ width: '100%', height: 'auto', objectFit: 'cover' }}
                                         />
                                     </div>

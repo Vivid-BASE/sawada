@@ -35,12 +35,11 @@ export default function PastEvents() {
                         >
                             {event.image && !event.image.includes('placehold.co') ? (
                                 <div className={styles.imageWrapper}>
-                                    <Image
+                                    <img
                                         src={event.image.startsWith('http') ? event.image : getImagePath(event.image)}
                                         alt={event.title}
-                                        fill
-                                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                         className={styles.image}
+                                        style={{ width: '100%', height: 'auto' }}
                                     />
                                 </div>
                             ) : (

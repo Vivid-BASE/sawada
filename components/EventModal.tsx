@@ -55,11 +55,9 @@ const EventModal: React.FC<EventModalProps> = ({ isOpen, onClose, title, descrip
                 <div className={styles.content}>
                     {image && !image.includes('placehold.co') && (
                         <div className={styles.imageWrapper}>
-                            <Image
+                            <img
                                 src={image.startsWith('http') ? image : getImagePath(image)}
                                 alt={title}
-                                width={600}
-                                height={400}
                                 style={{ width: '100%', height: 'auto', objectFit: 'contain' }}
                             />
                         </div>

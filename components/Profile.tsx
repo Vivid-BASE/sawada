@@ -1,4 +1,4 @@
-import Image from 'next/image';
+// import Image from 'next/image';
 import styles from './Profile.module.css';
 import profileData from '@/data/profile.json';
 import { getImagePath } from '@/utils/imagePath';
@@ -18,11 +18,15 @@ export default function Profile() {
                     </div>
                 </div>
                 <div className={styles.imageWrapper}>
-                    <Image
+                    <img
                         src={getImagePath(profileData.images.profile)}
                         alt="Sawada Yasuhito Profile"
-                        fill
                         className={styles.profileImage}
+                        style={{
+                            width: '100%',
+                            height: '100%',
+                            display: 'block'
+                        }}
                     />
                 </div>
             </div>

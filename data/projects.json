@@ -3,13 +3,13 @@
         "id": "1",
         "title": "ふるさとコンサート",
         "description": "津軽三味線と歌で全国各地を回り、日本の伝統芸能を身近に感じてもらうプロジェクト。地域活性化を目指しています。",
-        "image": "https://custom-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_9000,w_1200,f_auto,q_auto/1355744/302315_77951.png",
+        "image": "/images/project1.png",
         "events": [
             {
                 "id": "furusato-1",
                 "title": "ふるさとコンサート",
                 "date": "2023年",
-                "image": "https://custom-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_9000,w_1200,f_auto,q_auto/1355744/302315_77951.png",
+                "image": "/images/project1.png",
                 "description": "津軽三味線と歌で全国各地を回り、日本の伝統芸能を身近に感じてもらうプロジェクト。"
             }
         ]
@@ -18,41 +18,41 @@
         "id": "2",
         "title": "ARTS for the future! 2",
         "description": "文化庁の補助金事業として展開。複数のアーティストと協力し、音楽を通じて前向きなメッセージ（ハッピーワード）を届ける公演。",
-        "image": "https://custom-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_9000,w_1200,f_auto,q_auto/1355744/214543_131713.png",
+        "image": "/images/project2.png",
         "events": [
             {
                 "id": "arts-nagoya",
                 "title": "ハッピーワードin名古屋",
                 "date": "2021年",
-                "image": "https://custom-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_9000,w_1200,f_auto,q_auto/1355744/214543_131713.png",
+                "image": "/images/project2.png",
                 "description": "文化庁の補助金事業として展開。音楽を通じて前向きなメッセージを届ける公演。"
             },
             {
                 "id": "arts-higashimatsuyama-2",
                 "title": "ハッピーワードin東松山【第2部】",
                 "date": "2021年",
-                "image": "https://custom-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_9000,w_1200,f_auto,q_auto/1355744/883720_981285.png",
+                "image": "/images/project2.png",
                 "description": "文化庁の補助金事業として展開。音楽を通じて前向きなメッセージを届ける公演。"
             },
             {
                 "id": "arts-higashimatsuyama-1",
                 "title": "ハッピーワードin東松山【第1部】",
                 "date": "2021年",
-                "image": "https://custom-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_9000,w_1200,f_auto,q_auto/1355744/22006_270016.png",
+                "image": "/images/project2.png",
                 "description": "文化庁の補助金事業として展開。音楽を通じて前向きなメッセージを届ける公演。"
             },
             {
                 "id": "arts-sakado",
                 "title": "心のふるさとコンサートin坂戸",
                 "date": "2021年",
-                "image": "https://custom-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_9000,w_1200,f_auto,q_auto/1355744/34030_621134.png",
+                "image": "/images/project2.png",
                 "description": "文化庁の補助金事業として展開。音楽を通じて前向きなメッセージを届ける公演。"
             },
             {
                 "id": "arts-ozu",
                 "title": "心のふるさとコンサートin大洲",
                 "date": "2021年",
-                "image": "https://custom-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_9000,w_1200,f_auto,q_auto/1355744/792076_321153.png",
+                "image": "/images/project2.png",
                 "description": "文化庁の補助金事業として展開。音楽を通じて前向きなメッセージを届ける公演。"
             }
         ]
@@ -61,27 +61,27 @@
         "id": "3",
         "title": "リアル歌謡曲プロジェクト",
         "description": "次世代の歌謡曲を模索し、BS12のテレビ番組や新曲リリースを通じて地域を元気づける活動。",
-        "image": "https://custom-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_9000,w_1200,f_auto,q_auto/1355744/423079_168428.png",
+        "image": "/images/project3.png",
         "events": [
             {
                 "id": "real-isesaki",
                 "title": "「出発！進行！！」in伊勢崎",
                 "date": "2022年",
-                "image": "https://custom-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_9000,w_1200,f_auto,q_auto/1355744/423079_168428.png",
+                "image": "/images/project3.png",
                 "description": "次世代の歌謡曲を模索し、地域を元気づける活動。"
             },
             {
                 "id": "real-niiza",
                 "title": "「出発！進行！！」in新座",
                 "date": "2022年",
-                "image": "https://custom-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_9000,w_1200,f_auto,q_auto/1355744/15193_929892.png",
+                "image": "/images/project3.png",
                 "description": "次世代の歌謡曲を模索し、地域を元気づける活動。"
             },
             {
                 "id": "real-ryugasaki",
                 "title": "「出発！進行！！」in龍ヶ崎",
                 "date": "2022年",
-                "image": "https://custom-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_9000,w_1200,f_auto,q_auto/1355744/950674_375475.png",
+                "image": "/images/project3.png",
                 "description": "次世代の歌謡曲を模索し、地域を元気づける活動。"
             }
         ]

@@ -15,12 +15,15 @@ export default function ScheduleCard({ date, place, title, description, image }:
         <div className={styles.card}>
             {image && (
                 <div className={styles.imageWrapper}>
-                    <Image
+                    <img
                         src={image.startsWith('http') ? image : getImagePath(image)}
                         alt={title}
-                        width={400}
-                        height={300}
                         className={styles.eventImage}
+                        style={{
+                            width: '100%',
+                            height: 'auto',
+                            objectFit: 'cover'
+                        }}
                     />
                 </div>
             )}

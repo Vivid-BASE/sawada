@@ -35,12 +35,15 @@ export default function Discography() {
                         >
                             {item.image && !item.image.includes('placehold.co') ? (
                                 <div className={styles.imageWrapper}>
-                                    <Image
+                                    <img
                                         src={item.image.startsWith('http') ? item.image : getImagePath(item.image)}
                                         alt={item.title}
-                                        width={300}
-                                        height={300}
-                                        style={{ width: '100%', height: 'auto', display: 'block' }}
+                                        className={styles.image}
+                                        style={{
+                                            width: '100%',
+                                            height: 'auto',
+                                            display: 'block'
+                                        }}
                                     />
                                 </div>
                             ) : (

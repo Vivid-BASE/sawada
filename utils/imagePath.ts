@@ -6,7 +6,7 @@ export const getImagePath = (src: string) => {
 
     // Determine the base path based on environment
     // For GitHub Pages, we need the repository name as a prefix
-    const basePath = '';
+    const basePath = process.env.NODE_ENV === 'production' ? '/sawada' : '';
 
     // Ensure src starts with /
     const normalizedSrc = src.startsWith('/') ? src : `/${src}`;
