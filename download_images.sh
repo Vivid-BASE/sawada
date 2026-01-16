@@ -65,4 +65,17 @@ curl -L -A "$UA" -H "Referer: $REF" -o public/images/project2_sakado.png "https:
 # Ozu
 curl -L -A "$UA" -H "Referer: $REF" -o public/images/project2_ozu.png "https://custom-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_9000,w_1200,f_auto,q_auto/1355744/792076_321153.png"
 
+# Real Kayokyoku Project Events
+# Isesaki
+curl -L -A "$UA" -H "Referer: $REF" -o public/images/project3_isesaki.png "https://custom-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_9000,w_1200,f_auto,q_auto/1355744/423079_168428.png"
+
+# Niiza
+curl -L -A "$UA" -H "Referer: $REF" -o public/images/project3_niiza.png "https://custom-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_9000,w_1200,f_auto,q_auto/1355744/15193_929892.png"
+
+# Ryugasaki
+curl -L -A "$UA" -H "Referer: $REF" -o public/images/project3_ryugasaki.png "https://custom-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_9000,w_1200,f_auto,q_auto/1355744/950674_375475.png"
+
+# Anata no Furusato Concert (2021)
+curl -L -A "$UA" -H "Referer: $REF" -o public/images/project_anata_no_furusato.jpg "https://custom-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_9000,w_1200,f_auto,q_auto/1355744/362476_786016.jpg"
+
 echo "Download complete."
