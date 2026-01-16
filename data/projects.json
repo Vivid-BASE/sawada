@@ -92,34 +92,5 @@
                 "description": "場所:龍ケ崎市文化会館。出演:澤田慶仁、他。BS12「ザ・カセットテープ・ミュージック」公開収録。"
             }
         ]
-    },
-    {
-        "id": "4",
-        "title": "あなたのふるさとコンサート",
-        "description": "ARTS for the future! 事業として開催された、故郷を想う心を届けるコンサート。2021年に3都市で開催。",
-        "image": "/images/project_anata_no_furusato.jpg",
-        "events": [
-            {
-                "id": "anata-sakado",
-                "title": "あなたのふるさとコンサート in 坂戸",
-                "date": "2021.12.25",
-                "image": "/images/project_anata_no_furusato.jpg",
-                "description": "場所:坂戸グランドホテルWIN。出演:澤田慶仁、他。文化庁「ARTS for the future!」補助対象事業。"
-            },
-            {
-                "id": "anata-ozu",
-                "title": "あなたのふるさとコンサート in 大洲",
-                "date": "2021.12.18",
-                "image": "/images/project_anata_no_furusato.jpg",
-                "description": "場所:大洲まちの駅あさもや。出演:澤田慶仁、他。文化庁「ARTS for the future!」補助対象事業。"
-            },
-            {
-                "id": "anata-niiza",
-                "title": "あなたのふるさとコンサート in 新座",
-                "date": "2021.12.12",
-                "image": "/images/project_anata_no_furusato.jpg",
-                "description": "場所:新座市民会館。出演:澤田慶仁、他。文化庁「ARTS for the future!」補助対象事業。"
-            }
-        ]
     }
 ]
