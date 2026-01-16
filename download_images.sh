@@ -49,4 +49,20 @@ curl -L -A "$UA" -H "Referer: $REF" -o public/images/project2.png "https://custo
 # Project 3
 curl -L -A "$UA" -H "Referer: $REF" -o public/images/project3.png "https://custom-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_9000,w_1200,f_auto,q_auto/1355744/423079_168428.png"
 
+# ARTS Events (Project 2 Sub-events)
+# Nagoya
+curl -L -A "$UA" -H "Referer: $REF" -o public/images/project2_nagoya.png "https://custom-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_9000,w_1200,f_auto,q_auto/1355744/214543_131713.png"
+
+# Higashimatsuyama 1
+curl -L -A "$UA" -H "Referer: $REF" -o public/images/project2_higa1.png "https://custom-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_9000,w_1200,f_auto,q_auto/1355744/22006_270016.png"
+
+# Higashimatsuyama 2
+curl -L -A "$UA" -H "Referer: $REF" -o public/images/project2_higa2.png "https://custom-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_9000,w_1200,f_auto,q_auto/1355744/883720_981285.png"
+
+# Sakado
+curl -L -A "$UA" -H "Referer: $REF" -o public/images/project2_sakado.png "https://custom-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_9000,w_1200,f_auto,q_auto/1355744/34030_621134.png"
+
+# Ozu
+curl -L -A "$UA" -H "Referer: $REF" -o public/images/project2_ozu.png "https://custom-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_9000,w_1200,f_auto,q_auto/1355744/792076_321153.png"
+
 echo "Download complete."

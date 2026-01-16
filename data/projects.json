@@ -6,10 +6,17 @@
         "image": "/images/project1.png",
         "events": [
             {
-                "id": "furusato-1",
-                "title": "ふるさとコンサート",
-                "date": "2023年",
+                "id": "furusato-roman-2023-7",
+                "title": "ふるさとコンサート in ろまんちっく村",
+                "date": "2023.07.09",
                 "image": "/images/project1.png",
+                "description": "津軽三味線と歌で全国各地を回り、日本の伝統芸能を身近に感じてもらうプロジェクト。"
+            },
+            {
+                "id": "furusato-roman-2023-1",
+                "title": "ふるさとコンサート in ろまんちっく村",
+                "date": "2023.01.21",
+                "image": "/images/project1_sub1.png",
                 "description": "津軽三味線と歌で全国各地を回り、日本の伝統芸能を身近に感じてもらうプロジェクト。"
             }
         ]
@@ -24,35 +31,35 @@
                 "id": "arts-nagoya",
                 "title": "ハッピーワードin名古屋",
                 "date": "2021年",
-                "image": "/images/project2.png",
+                "image": "/images/project2_nagoya.png",
                 "description": "文化庁の補助金事業として展開。音楽を通じて前向きなメッセージを届ける公演。"
             },
             {
                 "id": "arts-higashimatsuyama-2",
                 "title": "ハッピーワードin東松山【第2部】",
                 "date": "2021年",
-                "image": "/images/project2.png",
+                "image": "/images/project2_higa2.png",
                 "description": "文化庁の補助金事業として展開。音楽を通じて前向きなメッセージを届ける公演。"
             },
             {
                 "id": "arts-higashimatsuyama-1",
                 "title": "ハッピーワードin東松山【第1部】",
                 "date": "2021年",
-                "image": "/images/project2.png",
+                "image": "/images/project2_higa1.png",
                 "description": "文化庁の補助金事業として展開。音楽を通じて前向きなメッセージを届ける公演。"
             },
             {
                 "id": "arts-sakado",
                 "title": "心のふるさとコンサートin坂戸",
                 "date": "2021年",
-                "image": "/images/project2.png",
+                "image": "/images/project2_sakado.png",
                 "description": "文化庁の補助金事業として展開。音楽を通じて前向きなメッセージを届ける公演。"
             },
             {
                 "id": "arts-ozu",
                 "title": "心のふるさとコンサートin大洲",
                 "date": "2021年",
-                "image": "/images/project2.png",
+                "image": "/images/project2_ozu.png",
                 "description": "文化庁の補助金事業として展開。音楽を通じて前向きなメッセージを届ける公演。"
             }
         ]
