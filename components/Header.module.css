@@ -1,0 +1,80 @@
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(244, 244, 240, 0.95);
+    /* Semi-transparent base color */
+    backdrop-filter: blur(10px);
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    border-bottom: 2px solid var(--color-gold);
+    /* Gold accent line */
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+}
+
+.logo {
+    font-family: var(--font-serif);
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--color-text-main);
+}
+
+/* Simulate a Kamon or decorative element */
+.kamontop {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background-color: var(--color-accent);
+    border-radius: 50%;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+.nav {
+    display: flex;
+    gap: 30px;
+}
+
+.nav a {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--color-text-main);
+    position: relative;
+    font-family: var(--font-sans);
+    letter-spacing: 0.05em;
+    transition: color 0.3s;
+}
+
+.nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-accent);
+    transition: width 0.3s ease;
+}
+
+.nav a:hover {
+    color: var(--color-accent);
+}
+
+.nav a:hover::after {
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .nav {
+        display: none;
+        /* Mobile menu to be implemented if requested, currently hidden as per simplified update */
+    }
+}

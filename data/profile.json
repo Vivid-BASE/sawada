@@ -1,0 +1,22 @@
+{
+    "name": "澤田 慶仁",
+    "nameReading": "Sawada Yasuhito",
+    "birthYear": 1965,
+    "birthPlace": "青森県上北郡六ヶ所村",
+    "biography": [
+        "青森県上北郡六ヶ所村生まれ。",
+        "田舎育ちが16歳で何も考えずに上京。",
+        "19歳より津軽三味線・澤田流を習い始め25歳で澤田慶仁を襲名。",
+        "以後「三味線も弾ける歌手」を売りに活動を続ける。",
+        "歌う事と芸事が好きだった自分、、遅咲きにして49歳にしてデビュー！",
+        "キャッチフレーズは「たかが100年、、、まだ夢の途中」。"
+    ],
+    "images": {
+        "profile": "/images/profile.jpg",
+        "hero": [
+            "/images/hero1.jpg",
+            "/images/hero2.jpg",
+            "/images/hero3.jpg"
+        ]
+    }
+}

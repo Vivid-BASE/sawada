@@ -1,0 +1,102 @@
+.section {
+    background-color: var(--color-bg-base);
+}
+
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 0;
+}
+
+/* Vertical line */
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50px;
+    /* Aligned with year width */
+    height: 100%;
+    width: 2px;
+    background-color: var(--color-gold);
+    opacity: 0.5;
+}
+
+.item {
+    display: flex;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.year {
+    width: 100px;
+    flex-shrink: 0;
+    font-family: var(--font-serif);
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: var(--color-accent);
+    text-align: right;
+    padding-right: 40px;
+    position: relative;
+}
+
+/* Dot on the timeline */
+.year::after {
+    content: '';
+    position: absolute;
+    top: 15px;
+    right: -9px;
+    /* Half of dot width (16px) - line width (2px) / 2 incorrect math but visual adjustment */
+    right: -9px;
+    width: 16px;
+    height: 16px;
+    background-color: var(--color-accent);
+    border: 3px solid var(--color-bg-base);
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.content {
+    flex: 1;
+    background-color: var(--color-bg-white);
+    padding: 24px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.title {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+    color: var(--color-text-main);
+}
+
+.description {
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+}
+
+@media (max-width: 768px) {
+    .timeline::before {
+        left: 20px;
+    }
+
+    .item {
+        flex-direction: column;
+    }
+
+    .year {
+        width: 100%;
+        text-align: left;
+        padding-left: 40px;
+        margin-bottom: 10px;
+    }
+
+    .year::after {
+        left: 13px;
+        top: 5px;
+    }
+
+    .content {
+        margin-left: 40px;
+    }
+}

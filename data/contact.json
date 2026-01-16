@@ -1,0 +1,20 @@
+{
+    "company": "株式会社エイフォース・エンタテイメント",
+    "phone": "03-5283-0455",
+    "email": "sawada@aforce-e.com",
+    "address": "〒101-0064 東京都千代田区神田猿楽町2丁目7番11号 ハマダビル4F",
+    "socials": [
+        {
+            "name": "Ameba Blog",
+            "url": "https://ameblo.jp/yasuhito-sawada/"
+        },
+        {
+            "name": "X (Twitter)",
+            "url": "https://twitter.com/yasuhitosawada"
+        },
+        {
+            "name": "Facebook",
+            "url": "https://www.facebook.com/sawadayasuhito"
+        }
+    ]
+}
