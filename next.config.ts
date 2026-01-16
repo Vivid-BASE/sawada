@@ -23,6 +23,8 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  basePath: process.env.NODE_ENV === 'production' ? '/sawada' : '',
+  assetPrefix: process.env.NODE_ENV === 'production' ? '/sawada/' : '',
 };
 
 export default nextConfig;
