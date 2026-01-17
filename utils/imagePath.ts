@@ -1,4 +1,7 @@
-export const getImagePath = (src: string) => {
+export const getImagePath = (src: string | undefined | null) => {
+    // Handle undefined or null
+    if (!src) return '';
+
     // If it's an external URL, return as is
     if (src.startsWith('http') || src.startsWith('//')) {
         return src;

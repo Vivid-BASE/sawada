@@ -14,7 +14,7 @@ export const SHEET_NAMES = {
 } as const;
 
 export async function fetchSheetData<T = any>(sheetName: string): Promise<T[] | null> {
-    const url = `https://docs.google.com/spreadsheets/d/${SPREADSHEET_ID}/gviz/tq?tqx=out:csv&sheet=${encodeURIComponent(sheetName)}`;
+    const url = `https://docs.google.com/spreadsheets/d/${SPREADSHEET_ID}/gviz/tq?tqx=out:csv&sheet=${encodeURIComponent(sheetName)}&headers=1`;
 
     try {
         const response = await fetch(url);

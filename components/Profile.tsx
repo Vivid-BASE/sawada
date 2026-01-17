@@ -91,18 +91,20 @@ export default function Profile() {
                         ))}
                     </div>
                 </div>
-                <div className={styles.imageWrapper}>
-                    <img
-                        src={getImagePath(profileData.images.profile)}
-                        alt="Sawada Yasuhito Profile"
-                        className={styles.profileImage}
-                        style={{
-                            width: '100%',
-                            height: '100%',
-                            display: 'block'
-                        }}
-                    />
-                </div>
+                {profileData.images?.profile && (
+                    <div className={styles.imageWrapper}>
+                        <img
+                            src={getImagePath(profileData.images.profile)}
+                            alt="Sawada Yasuhito Profile"
+                            className={styles.profileImage}
+                            style={{
+                                width: '100%',
+                                height: '100%',
+                                display: 'block'
+                            }}
+                        />
+                    </div>
+                )}
             </div>
         </section>
     );
