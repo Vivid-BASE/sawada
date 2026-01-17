@@ -33,10 +33,45 @@ export default function Projects() {
 
     useEffect(() => {
         const loadSheetData = async () => {
-            const sheetData = await fetchSheetData(SHEET_NAMES.PROJECTS);
-            if (sheetData && sheetData.length > 0) {
-                setProjectsData(sheetData as typeof projectsDataJson);
-                console.log('✅ Projects data loaded from Google Sheets');
+            try {
+                const sheetData = await fetchSheetData(SHEET_NAMES.PROJECTS);
+
+                if (sheetData && sheetData.length > 0) {
+                    // Transform flat CSV data into hierarchical structure
+                    const projectsMap = new Map<string, Project>();
+
+                    sheetData.forEach((row: any) => {
+                        const projectId = row.projectId;
+
+                        if (!projectsMap.has(projectId)) {
+                            projectsMap.set(projectId, {
+                                id: projectId,
+                                title: row.projectTitle,
+                                description: row.projectDescription,
+                                image: row.projectImage,
+                                events: []
+                            });
+                        }
+
+                        const project = projectsMap.get(projectId)!;
+                        project.events.push({
+                            id: row.eventId,
+                            title: row.eventTitle,
+                            date: row.eventDate,
+                            image: row.eventImage,
+                            description: row.eventDescription
+                        });
+                    });
+
+                    const transformedData = Array.from(projectsMap.values());
+                    setProjectsData(transformedData);
+                    console.log('✅ Projects data loaded from Google Sheets');
+                } else {
+                    console.log('⚠️ No projects data from Google Sheets, using JSON fallback');
+                }
+            } catch (error) {
+                console.error('❌ Error loading projects data from Google Sheets:', error);
+                console.log('Using JSON fallback data');
             }
         };
         loadSheetData();

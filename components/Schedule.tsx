@@ -23,9 +23,18 @@ export default function Schedule() {
             try {
                 const data = await fetchSheetData<ScheduleItem>(SHEET_NAMES.SCHEDULE);
 
+                // Validate that data has required fields
                 if (data && data.length > 0) {
-                    setScheduleData(data);
-                    console.log('✅ Schedule data loaded from Google Sheets');
+                    const isValid = data.every(item =>
+                        item.id && item.date && item.title && item.image
+                    );
+
+                    if (isValid) {
+                        setScheduleData(data);
+                        console.log('✅ Schedule data loaded from Google Sheets');
+                    } else {
+                        console.log('⚠️ Schedule data from Google Sheets is invalid, using JSON fallback');
+                    }
                 } else {
                     console.log('⚠️ No schedule data from Google Sheets, using JSON fallback');
                 }
