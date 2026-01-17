@@ -16,10 +16,24 @@ export default function Discography() {
     // Fetch data from Google Sheets on mount
     useEffect(() => {
         const loadSheetData = async () => {
-            const sheetData = await fetchSheetData(SHEET_NAMES.DISCOGRAPHY);
-            if (sheetData && sheetData.length > 0) {
-                setDiscData(sheetData as typeof discDataJson);
-                console.log('✅ Discography data loaded from Google Sheets');
+            try {
+                const sheetData = await fetchSheetData(SHEET_NAMES.DISCOGRAPHY);
+                if (sheetData && sheetData.length > 0) {
+                    // Transform couplings from string to array
+                    const transformedData = sheetData.map((item: any) => ({
+                        ...item,
+                        couplings: typeof item.couplings === 'string'
+                            ? item.couplings.split(',').map((s: string) => s.trim()).filter((s: string) => s.length > 0)
+                            : item.couplings || []
+                    }));
+                    setDiscData(transformedData as typeof discDataJson);
+                    console.log('✅ Discography data loaded from Google Sheets');
+                } else {
+                    console.log('⚠️ No discography data from Google Sheets, using JSON fallback');
+                }
+            } catch (error) {
+                console.error('❌ Error loading discography data from Google Sheets:', error);
+                console.log('Using JSON fallback data');
             }
         };
         loadSheetData();

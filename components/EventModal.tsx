@@ -13,7 +13,7 @@ interface EventModalProps {
     image?: string;
     date?: string;
     link?: string;
-    couplings?: string[];
+    couplings?: string[] | string;
     productCode?: string;
 }
 
@@ -66,11 +66,11 @@ const EventModal: React.FC<EventModalProps> = ({ isOpen, onClose, title, descrip
                         <h2 className={styles.title}>{title}</h2>
                         {date && <p className={styles.date}>{date}</p>}
                         {productCode && <p className={styles.productCode}>品番: {productCode}</p>}
-                        {couplings && couplings.length > 0 && (
+                        {couplings && (Array.isArray(couplings) ? couplings.length > 0 : couplings) && (
                             <div className={styles.couplings}>
                                 <h3>カップリング曲</h3>
                                 <ul>
-                                    {couplings.map((song, index) => (
+                                    {(Array.isArray(couplings) ? couplings : couplings.split(',').map(s => s.trim())).map((song, index) => (
                                         <li key={index}>{song}</li>
                                     ))}
                                 </ul>
