@@ -1,7 +1,39 @@
+'use client';
+
+import { useEffect, useState } from 'react';
 import styles from './History.module.css';
-import historyData from '@/data/history.json';
+import historyDataJson from '@/data/history.json';
+import { fetchSheetData, SHEET_NAMES } from '@/utils/sheetsClient';
+
+interface HistoryItem {
+    year: string;
+    title: string;
+    description: string;
+}
 
 export default function History() {
+    const [historyData, setHistoryData] = useState<HistoryItem[]>(historyDataJson);
+
+    useEffect(() => {
+        async function loadHistoryData() {
+            try {
+                const data = await fetchSheetData<HistoryItem>(SHEET_NAMES.HISTORY);
+
+                if (data && data.length > 0) {
+                    setHistoryData(data);
+                    console.log('✅ History data loaded from Google Sheets');
+                } else {
+                    console.log('⚠️ No history data from Google Sheets, using JSON fallback');
+                }
+            } catch (error) {
+                console.error('❌ Error loading history data from Google Sheets:', error);
+                console.log('Using JSON fallback data');
+            }
+        }
+
+        loadHistoryData();
+    }, []);
+
     return (
         <section className={`section ${styles.section}`}>
             <div className="container">
