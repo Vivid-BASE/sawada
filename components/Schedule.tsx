@@ -19,16 +19,21 @@ export default function Schedule() {
     const [scheduleData, setScheduleData] = useState<ScheduleItem[]>(scheduleDataJson);
 
     useEffect(() => {
-        async function loadScheduleData() {
+        // Temporarily disabled Google Sheets due to malformed CSV data
+        // Google Sheets schedule data has commas in price values (￥8,000) which breaks CSV parsing
+        // Using JSON fallback until Google Sheets data structure is fixed
+        console.log('⚠️ Using JSON fallback for Schedule data (Google Sheets CSV is malformed)');
+
+        /* async function loadScheduleData() {
             try {
                 const data = await fetchSheetData<ScheduleItem>(SHEET_NAMES.SCHEDULE);
 
                 // Validate that data has required fields
                 if (data && data.length > 0) {
-                    const isValid = data.every(item =>
+                    const isValid = data.every(item => 
                         item.id && item.date && item.title && item.image
                     );
-
+                    
                     if (isValid) {
                         setScheduleData(data);
                         console.log('✅ Schedule data loaded from Google Sheets');
@@ -44,7 +49,7 @@ export default function Schedule() {
             }
         }
 
-        loadScheduleData();
+        loadScheduleData(); */
     }, []);
 
     return (

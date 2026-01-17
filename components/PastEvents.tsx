@@ -14,14 +14,19 @@ export default function PastEvents() {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     useEffect(() => {
-        const loadSheetData = async () => {
+        // Temporarily disabled Google Sheets due to malformed CSV data
+        // Google Sheets past_events data has commas in image URLs which breaks CSV parsing
+        // Using JSON fallback until Google Sheets data structure is fixed
+        console.log('⚠️ Using JSON fallback for Past Events data (Google Sheets CSV is malformed)');
+
+        /* const loadSheetData = async () => {
             const sheetData = await fetchSheetData(SHEET_NAMES.PAST_EVENTS);
             if (sheetData && sheetData.length > 0) {
                 setPastEvents(sheetData as typeof pastEventsJson);
                 console.log('✅ Past Events data loaded from Google Sheets');
             }
         };
-        loadSheetData();
+        loadSheetData(); */
     }, []);
 
     const handleEventClick = (event: typeof pastEventsJson[0]) => {
