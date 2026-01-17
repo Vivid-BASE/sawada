@@ -11,6 +11,7 @@ export const SHEET_NAMES = {
     PROJECTS: 'projects',
     PROFILE: 'profile',
     HISTORY: 'history',
+    MOVIES: 'movies',
 } as const;
 
 export async function fetchSheetData<T = any>(sheetName: string): Promise<T[] | null> {
