@@ -1,17 +1,31 @@
 "use client";
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import styles from './Discography.module.css';
-import discData from '@/data/discography.json';
+import discDataJson from '@/data/discography.json';
 import EventModal from './EventModal';
 import { getImagePath } from '@/utils/imagePath';
+import { fetchSheetData, SHEET_NAMES } from '@/utils/sheetsClient';
 
 export default function Discography() {
-    const [selectedItem, setSelectedItem] = useState<typeof discData[0] | null>(null);
+    const [discData, setDiscData] = useState(discDataJson);
+    const [selectedItem, setSelectedItem] = useState<typeof discDataJson[0] | null>(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
 
-    const handleItemClick = (item: typeof discData[0]) => {
+    // Fetch data from Google Sheets on mount
+    useEffect(() => {
+        const loadSheetData = async () => {
+            const sheetData = await fetchSheetData(SHEET_NAMES.DISCOGRAPHY);
+            if (sheetData && sheetData.length > 0) {
+                setDiscData(sheetData as typeof discDataJson);
+                console.log('✅ Discography data loaded from Google Sheets');
+            }
+        };
+        loadSheetData();
+    }, []);
+
+    const handleItemClick = (item: typeof discDataJson[0]) => {
         setSelectedItem(item);
         setIsModalOpen(true);
     };

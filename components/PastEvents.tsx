@@ -1,17 +1,30 @@
 "use client";
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import styles from './PastEvents.module.css';
-import pastEvents from '@/data/past_events.json';
+import pastEventsJson from '@/data/past_events.json';
 import EventModal from './EventModal';
 import { getImagePath } from '@/utils/imagePath';
+import { fetchSheetData, SHEET_NAMES } from '@/utils/sheetsClient';
 
 export default function PastEvents() {
-    const [selectedEvent, setSelectedEvent] = useState<typeof pastEvents[0] | null>(null);
+    const [pastEvents, setPastEvents] = useState(pastEventsJson);
+    const [selectedEvent, setSelectedEvent] = useState<typeof pastEventsJson[0] | null>(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
 
-    const handleEventClick = (event: typeof pastEvents[0]) => {
+    useEffect(() => {
+        const loadSheetData = async () => {
+            const sheetData = await fetchSheetData(SHEET_NAMES.PAST_EVENTS);
+            if (sheetData && sheetData.length > 0) {
+                setPastEvents(sheetData as typeof pastEventsJson);
+                console.log('✅ Past Events data loaded from Google Sheets');
+            }
+        };
+        loadSheetData();
+    }, []);
+
+    const handleEventClick = (event: typeof pastEventsJson[0]) => {
         setSelectedEvent(event);
         setIsModalOpen(true);
     };

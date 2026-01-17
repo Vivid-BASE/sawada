@@ -1,11 +1,12 @@
 "use client";
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import styles from './Projects.module.css';
-import projectsData from '@/data/projects.json';
+import projectsDataJson from '@/data/projects.json';
 import EventModal from './EventModal';
 import { getImagePath } from '@/utils/imagePath';
+import { fetchSheetData, SHEET_NAMES } from '@/utils/sheetsClient';
 
 type Event = {
     id: string;
@@ -24,10 +25,22 @@ type Project = {
 };
 
 export default function Projects() {
+    const [projectsData, setProjectsData] = useState(projectsDataJson);
     const [selectedProject, setSelectedProject] = useState<Project | null>(null);
     const [selectedEvent, setSelectedEvent] = useState<Event | null>(null);
     const [isProjectModalOpen, setIsProjectModalOpen] = useState(false);
     const [isEventModalOpen, setIsEventModalOpen] = useState(false);
+
+    useEffect(() => {
+        const loadSheetData = async () => {
+            const sheetData = await fetchSheetData(SHEET_NAMES.PROJECTS);
+            if (sheetData && sheetData.length > 0) {
+                setProjectsData(sheetData as typeof projectsDataJson);
+                console.log('✅ Projects data loaded from Google Sheets');
+            }
+        };
+        loadSheetData();
+    }, []);
 
     const handleProjectClick = (project: Project) => {
         setSelectedProject(project);

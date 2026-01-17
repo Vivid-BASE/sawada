@@ -10,6 +10,37 @@ Googleスプレッドシートを編集するだけでウェブサイトのコ�
 
 ### ステップ1: Googleスプレッドシートの作成
 
+#### オプションA: 既存データをインポート(推奨)
+
+`docs/spreadsheet_templates/` フォルダに既存データが入ったCSVファイルがあります:
+- `schedule.csv` - 今後のイベント(7件)
+- `past_events.csv` - 過去のイベント(14件)
+- `discography.csv` - ディスコグラフィー(11件)
+- `projects.csv` - プロジェクト(3プロジェクト、11イベント)
+- `profile.csv` - プロフィール情報
+- `history.csv` - 経歴(11項目)
+
+**インポート手順:**
+
+1. 新しいGoogleスプレッドシートを作成
+2. 名前を付ける: `Sawada Website Content`
+3. 各CSVファイルをインポート:
+   - 「ファイル」→「インポート」をクリック
+   - 「アップロード」タブを選択
+   - CSVファイルをドラッグ&ドロップ
+   - 「インポート場所」で「新しいシートを挿入」を選択
+   - 「データをインポート」をクリック
+   - シート名を変更:
+     - `schedule.csv` → `Schedule`
+     - `past_events.csv` → `PastEvents`
+     - `discography.csv` → `Discography`
+     - `projects.csv` → `Projects`
+     - `profile.csv` → `Profile`
+     - `history.csv` → `History`
+4. 完了! 6つのタブが全て既存データ入りで作成されます
+
+#### オプションB: 手動で作成
+
 1. 新しいGoogleスプレッドシートを作成
 2. 名前を付ける: `Sawada Website Content`
 3. 以下の6つのタブを作成:
